@@ -19,26 +19,24 @@ This course will be using MongoDB Atlas, a cloud-based Mongo service, for hands-
 using a Google account when creating your [**Atlas MongoDB Cluster**](https://www.mongodb.com/cloud/atlas/register).
 
 
-1. Open this repository in Gitpod
+1. [Open this repository in Gitpod](https://gitpod.io/#https://github.com/nmagee/mongodb-practice/)
 
-
-2. Set up 
+2. Set up (if necessary)
 ```
 curl https://gist.githubusercontent.com/nmagee/8af7b3f71bbd14730f83bf365c20d878/raw/673ba528f4b9352eded70ddd131a319de02f2545/install.sh | bash
 ```
-1. Open 
-2. 
+3. You now have a command `MONGO-ATLAS` that will open up a `mongosh` connection to my MongoDB Atlas cluster. 
 
 **Connect**
 
-Install the `mongosh` client for your laptop. Or use a Gitpod environment and run the installer:
+Examine the `MONGO-ATLAS` command by using this command and reading the output:
 ```
-sudo apt update
-sudo apt install mongosh
+env | grep "MONGO"
 ```
 
+You will see it is made up of a `mongosh` command with parameters like:
 ```
-mongosh "mongodb+srv://cluster0.pguxs.mongodb.net/myFirstDatabase" --username <username>
+mongosh "mongodb+srv://USERNAME:PASSWORD@cluster0.zzzzzz.mongodb.net/"
 ```
 
 Customize the command slightly:
