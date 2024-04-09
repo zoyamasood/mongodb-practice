@@ -1,4 +1,5 @@
-# mongodb-practice
+# Lab 9: Practice working with MongoDB
+
 Learn MongoDB with hands-on practice.
 
 - [Run MongoDB \& Connect](#run-mongodb--connect)
