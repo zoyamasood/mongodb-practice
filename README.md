@@ -109,22 +109,22 @@ show dbs
 ```
 db
 ```
-3. Use a specific database. If it does not exist, it will be created.
+3. Use a specific database based on your UVA computing ID. If it does not exist, it will be created.
 ```
-use things
+use mst3k
 show dbs
 ```
 Notice that your new database does not yet show up. This is because it needs to contain some documents first.
+
 4. Insert a simple document. You will specify a collection within the `things` DB, and if it does not yet exist it will be created.
 ```
 db.hobbies.insert({name:"horseback riding"})
 ```
-5. List all documents in this collection. Repeat and make the output pretty.
+5. List all documents in this collection.
 ```
 db.hobbies.find()
-db.hobbies.find().pretty()
 ```
-You should get back the full document:
+You should get back a full document:
 ```
 {
     "_id" : ObjectId("606b5e9d37c1606354c39e3d"),
@@ -136,7 +136,7 @@ You should get back the full document:
     ]
 }
 ```
-Note
+
 6. Insert several more documents, varied in their data complexity.
 ```
 db.hobbies.insert({"name":"cycling","equipment":["bicycle","helmet","air pump"]})
@@ -145,7 +145,7 @@ db.hobbies.insert({"name":"archery","equipment":["bow","arrows"]})
 ```
 7. View all documents again:
 ```
-db.hobbies.find().pretty()
+db.hobbies.find()
 ```
 8. Notice your first document lacks any equipment values. To update it
 ```
@@ -183,6 +183,9 @@ db.<db-name>.findOne({...})
 ```
 
 **Update / Upsert**
+
+An `upsert` is applied to all documents matching the criteria, or inserts a new document if there are no matches.
+
 ```
 db.<db-name>.update({{"<search-key>" : "<search-value>"},{$set : {"<key>": "<updated-value>"}}})
 db.<db-name>.updateOne({SingleKeyToUpdate},{Set Command})
@@ -196,4 +199,4 @@ db.<db-name>.delete(<search-condition>)
 
 ## Integrating with `python3`
 
-Try installing the `pymongo` library!
+Try installing the `pymongo` library! The same operations will work in Python.
