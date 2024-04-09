@@ -170,16 +170,37 @@ db.hobbies.remove({name:"archery"})
 
 ## Reference: CRUD Operations
 
+Let's create another collection to work with called `inventory`:
+```
+db.inventory.insertMany( [
+   { item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" },
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "A" },
+   { item: "mousepad", qty: 25, size: { h: 19, w: 22.85, uom: "cm" }, status: "P" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" },
+   { item: "sketchbook", qty: 80, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "sketch pad", qty: 95, size: { h: 22.85, w: 30.5, uom: "cm" }, status: "A" }
+] );
+```
+
 **Create**
 ```
 db.<db-name>.insertOne({...})
-db.<db-name>.insertMany({...})
+db.inventory.insertOne({ item: "calendar", qty: 80, size: { h: 20, w: 40, uom: "cm" }, status: "D" })
+
+db.<db-name>.insertMany({...})   # See above
 ```
 
 **Read**
 ```
 db.<db-name>.find({...})
+db.inventory.find({"status": "D"})
+
 db.<db-name>.findOne({...})
+db.inventory.findOne(ObjectId('66157d66f27a5c78964fdd80'))
 ```
 
 **Update / Upsert**
@@ -189,14 +210,29 @@ An `upsert` is applied to all documents matching the criteria, or inserts a new 
 ```
 db.<db-name>.update({{"<search-key>" : "<search-value>"},{$set : {"<key>": "<updated-value>"}}})
 db.<db-name>.updateOne({SingleKeyToUpdate},{Set Command})
+
+db.inventory.updateOne(
+   { item: "paper" },
+   {
+     $set: { "size.uom": "cm", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)
 ```
 
 **Delete**
 ```
 db.<db-name>.deleteOne(<search-condition>)
 db.<db-name>.delete(<search-condition>)
+
+db.inventory.deleteMany({ status : "A" })
 ```
 
 ## Integrating with `python3`
 
 Try installing the `pymongo` library! The same operations will work in Python.
+
+## Learn More
+
+- [MongoDB Tutorials](https://www.mongodb.com/docs/manual/tutorial/)
+- [
