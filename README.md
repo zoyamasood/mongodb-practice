@@ -1,15 +1,11 @@
 # mongodb-practice
 Learn MongoDB with hands-on practice.
 
-
-# Lab 9: MongoDB
-
-- [Lab 9: MongoDB](#lab-9-mongodb)
-  - [Run MongoDB \& Connect](#run-mongodb--connect)
-  - [Exercise 1](#exercise-1)
-  - [Exercise 2](#exercise-2)
-  - [Reference: CRUD Operations](#reference-crud-operations)
-  - [Integrating with `python3`](#integrating-with-python3)
+- [Run MongoDB \& Connect](#run-mongodb--connect)
+- [Exercise 1](#exercise-1)
+- [Exercise 2](#exercise-2)
+- [Reference: CRUD Operations](#reference-crud-operations)
+- [Integrating with `python3`](#integrating-with-python3)
 
 ## Run MongoDB & Connect
 
