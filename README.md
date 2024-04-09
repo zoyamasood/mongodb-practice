@@ -12,8 +12,9 @@ Learn MongoDB with hands-on practice.
 
 **Setup**
 
-This course will be using MongoDB Atlas, a cloud-based Mongo service, for hands-on exercises. Follow the instructions in the [**How To video**](https://www.youtube.com/watch?v=9DbZ2ii01ew) for setup. I recommend using a Google account when creating your [**Atlas MongoDB Cluster**](https://www.mongodb.com/cloud/atlas/register).
+This course will be using MongoDB Atlas, a cloud-based Mongo service, for hands-on exercises. If you would like your own Atlas cluster, follow the instructions in the [**How To video**](https://www.youtube.com/watch?v=9DbZ2ii01ew) for setup. I recommend using a Google account when creating your [**Atlas MongoDB Cluster**](https://www.mongodb.com/cloud/atlas/register).
 
+For class exercises you can use an Atlas cluster that has already been created:
 
 1. [Open this repository in Gitpod](https://gitpod.io/#https://github.com/nmagee/mongodb-practice/)
 
