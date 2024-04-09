@@ -1,5 +1,4 @@
-# Lab 9: Practice working with MongoDB
-
+# mongodb-practice
 Learn MongoDB with hands-on practice.
 
 - [Run MongoDB \& Connect](#run-mongodb--connect)
@@ -12,8 +11,7 @@ Learn MongoDB with hands-on practice.
 
 **Setup**
 
-This course will be using MongoDB Atlas, a cloud-based Mongo service, for hands-on exercises. Follow the instructions in the [**How To video**](https://www.youtube.com/watch?v=9DbZ2ii01ew) for setup. I recommend
-using a Google account when creating your [**Atlas MongoDB Cluster**](https://www.mongodb.com/cloud/atlas/register).
+This course will be using MongoDB Atlas, a cloud-based Mongo service, for hands-on exercises. Follow the instructions in the [**How To video**](https://www.youtube.com/watch?v=9DbZ2ii01ew) for setup. I recommend using a Google account when creating your [**Atlas MongoDB Cluster**](https://www.mongodb.com/cloud/atlas/register).
 
 
 1. [Open this repository in Gitpod](https://gitpod.io/#https://github.com/nmagee/mongodb-practice/)
@@ -36,21 +34,16 @@ You will see it is made up of a `mongosh` command with parameters like:
 mongosh "mongodb+srv://USERNAME:PASSWORD@cluster0.zzzzzz.mongodb.net/"
 ```
 
-Customize the command slightly:
-
-- Remove `myFirstDatabase` from the connection string.
-- Replace `<username>` with the user you created.
-
-You will be prompted for your password and should then gain a prompt:
-
+Issuing this command will give you a propmt like this:
 ```
-root@a18a980325ad:/workspaces/course# mongo "mongodb+srv://cluster0.pguxs.mongodb.net" --username mongo
-MongoDB shell version v4.4.4
-Enter password: 
-connecting to: mongodb://cluster0-shard-00-00.pguxs.mongodb.net:27017,cluster0-shard-00-01.pguxs.mongodb.net:27017,cluster0-shard-00-02.pguxs.mongodb.net:27017/?authSource=admin&compressors=disabled&gssapiServiceName=mongodb&replicaSet=atlas-f0pmyi-shard-0&ssl=true
-Implicit session: session { "id" : UUID("bb19fed7-39b9-4089-b292-fbbcc5f0efcf") }
-MongoDB server version: 4.4.4
-MongoDB Enterprise atlas-f0pmyi-shard-0:PRIMARY> 
+Current Mongosh Log ID:	66158541454b7620e4a690a6
+Connecting to:		mongodb+srv://<credentials>@cluster0.pnxzwgz.mongodb.net/?appName=mongosh+2.2.3
+Using MongoDB:		7.0.8 (API Version 1)
+Using Mongosh:		2.2.3
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+Atlas atlas-2o6kes-shard-0 [primary] test>
 ```
 
 After watching the [**Mongo in 30 minutes**](https://www.youtube.com/watch?v=pWbMrx5rVBE) video, try completing one of 
@@ -65,81 +58,41 @@ This task uses sample data available on the Atlas Cloud console.
 2. Using your `mongo` shell, list your databases, select the `sample_weatherdata` set, then show collections within that:
 ```
 show dbs;
-use sample_weatherdata;
+use sample_mflix;
 show collections;
 ```
-3. This should show you there is a `data` collection within that database. Find all documents in the collection, then display them using the `.pretty()` flag, and finally count them:
+3. This should show you there is a `movies` collection within that database. Find all documents in the collection, then count them:
 ```
-db.data.find();
-db.data.find().pretty();
-db.data.find().count();
+db.movies.find();
+db.movies.countDocuments();
 ```
-4. Search for all documents containing a `skyCondition.ceilingHeight.value` of `750` and count the results. Then display the results:
+4. Search for all documents containing a `year` of `1921` and count the results. Then display the results:
 ```
-db.data.find({"skyCondition.ceilingHeight.value":750}).count();
-db.data.find({"skyCondition.ceilingHeight.value":750}).pretty();
+db.movies.find({"year":1921})
+db.movies.countDocuments({"year":1921})
 ```
+
 5. Retrieve a single document based on `ObjectId`:
 ```
-db.data.find(ObjectId("5553a998e4b02cf7151195d3")).pretty();
+db.movies.find(ObjectId('573a1391f29313caabcd72f0'));
 ```
 6. Finally, using the code below insert a new document. After insertion, can you retrieve this document?
 ```
-db.data.insertOne({
-        "st" : "x+85600-124000",
-        "ts" : ISODate("1984-03-07T13:00:00Z"),
-        "position" : {
-                "type" : "Point",
-                "coordinates" : [
-                        -124,
-                        85.6
-                ]
-        },
-        "elevation" : 8787,
-        "callLetters" : "ROBZ",
-        "qualityControlProcess" : "V020",
-        "dataSource" : "3",
-        "type" : "FM-13",
-        "airTemperature" : {
-                "value" : -22.9,
-                "quality" : "1"
-        },
-        "dewPoint" : {
-                "value" : -24.9,
-                "quality" : "1"
-        },
-        "pressure" : {
-                "value" : 1000.2,
-                "quality" : "1"
-        },
-        "wind" : {
-                "direction" : {
-                        "angle" : 270,
-                        "quality" : "1"
-                },
-                "type" : "N",
-                "speed" : {
-                        "rate" : 7,
-                        "quality" : "1"
-                }
-        },
-        "visibility" : {
-                "distance" : {
-                        "value" : 7000,
-                        "quality" : "1"
-                },
-                "variability" : {
-                        "value" : "N",
-                        "quality" : "9"
-                }
-        },
-        "skyCondition" : {
-                "ceilingHeight" : {
-                        "value" : 760,
-                        "quality" : "1",
-                        "determination" : "C"
-                }
-        }
+db.movies.insertOne({
+    genres: [ 'Drama' ],
+    runtime: 14,
+    cast: [
+        'Acty Actor',
+    ],
+    title: "Example Movie",
+    countries: [ 'USA' ],
+    released: ISODate('1930-01-01T00:00:00.000Z'),
+    directors: [ 'Director Name' ],
+    lastupdated: '2024-04-09 01:12:08.943000000',
+    year: 1930,
+    imdb: { rating: 8.1, votes: 1455, id: 12999 },
+    type: 'movie',
+    num_mflix_comments: 0
 });
 ```
 
