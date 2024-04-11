@@ -20,4 +20,8 @@ new_record = {
     "name": "Mama Gina's Classy Kitchen"
 }
 
-# Now insert and pull the new document out using find()
+# Insert a single record
+restaurants.insert_one(new_record)
+
+get_record = restaurants.find({"name":"Mama Gina's Classy Kitchen"})
+print(dumps(get_record, indent=2))

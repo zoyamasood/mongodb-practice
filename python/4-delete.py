@@ -7,10 +7,10 @@ from db import *
 
 
 # Deletes first one it finds matching criteria
+restaurants.delete_one({"name":"Mama Gina's Classy Kitchen"}
 
+## Deletes all documents w/ found matching criteria
+# restaurants.delete_many({"borough":"Brooklyn"})
 
-# Or delete ALL documents found matching criteria
-# restaurants.delete_many()
-
-get_record = restaurants.find({"name":"Mama Gina's Classy Kitchen"})
-print(dumps(get_record, indent=2))
+## Delete all documents in a collection
+# restaurants.delete_many({})
