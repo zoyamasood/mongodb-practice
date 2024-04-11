@@ -9,6 +9,7 @@ Learn MongoDB with hands-on practice.
   - [Reference: CRUD Operations](#reference-crud-operations)
   - [Integrating with `python3`](#integrating-with-python3)
   - [Learn More](#learn-more)
+  - [Submit](#submit)
 
 ## Run MongoDB & Connect
 
@@ -259,3 +260,17 @@ Change into the [`python/`](python/) directory to explore simple CRUD operations
 ## Learn More
 
 - [MongoDB Tutorials](https://www.mongodb.com/docs/manual/tutorial/)
+
+## Submit
+
+Using the MongoDB Atlas connection we worked with in class, switch to the database you created under your UVA computing ID.
+
+Write a single Python script that
+
+1. Creates a new collection,
+2. inserts five (5) documents, and then
+3. write a query that displays exactly three (3) of those documents. 
+
+Be creative with data values or other attributes to make your `find` or `find_many` statements easy.
+
+Save this file as a new GitHub gist here: https://gist.github.com/ and submit the URL for grading.
