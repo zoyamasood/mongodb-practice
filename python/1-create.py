@@ -20,7 +20,6 @@ new_record = {
     "name": "Mama Gina's Classy Kitchen"
 }
 
-### 
 # Insert a single record
 restaurants.insert_one(new_record)
 

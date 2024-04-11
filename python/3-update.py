@@ -15,9 +15,6 @@ restaurants.update_one({"name": "Mama Gina's Classy Kitchen"}, {"$set": {"freshn
 # PUSH sets a new data field
 restaurants.update_one({"name": "Mama Gina's Classy Kitchen"}, {"$push": {"tagz":"fancy"}})
 
-# Updates several records - all matching criteria
-# restaurants.update_many(new_record)
-
 # The full list of mongodb operators is here:
 # https://docs.mongodb.com/manual/reference/operator/
 
