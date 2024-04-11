@@ -17,5 +17,6 @@ print(colls)
 restaurants = thisdb.restaurants
 count = restaurants.count_documents({})
 print(count, "restaurants")
+
 italian = restaurants.count_documents({'cuisine': 'Italian'})
 print(italian, "Italian restaurants")
