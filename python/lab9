@@ -89,5 +89,5 @@ new_records = [
 restaurants.insert_many(new_records)
 
 # Query that displays 3 documents 
-get_three = restaurants.find().limit(3)
+get_three = restaurants.find({"borough" : "Brooklyn"}).limit(3)
 print(dumps(get_three, indent=2))
